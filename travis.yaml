@@ -1,0 +1,8 @@
+language: python
+python:
+  - "3.8"
+services:
+  - docker
+script:
+  - cd app
+  - docker-compose up --build --abort-on-container-exit
