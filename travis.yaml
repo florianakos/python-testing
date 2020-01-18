@@ -1,8 +1,11 @@
 language: python
 python:
-  - "3.8"
+  - "3.6"
 services:
   - docker
 script:
   - cd app
   - docker-compose up --build --abort-on-container-exit
+branches:
+  only:
+    - master
