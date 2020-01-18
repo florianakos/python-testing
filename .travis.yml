@@ -7,6 +7,3 @@ services:
 script:
   - cd app
   - docker-compose up --build --abort-on-container-exit
-branches:
-  only:
-    - master
