@@ -1,0 +1,4 @@
+localstack-client
+localstack
+pytest
+datadog

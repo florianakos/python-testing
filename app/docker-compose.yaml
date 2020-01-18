@@ -1,0 +1,19 @@
+version: '3.2'
+services:
+  localstack:
+    image: localstack/localstack:latest
+    container_name: localstack
+    ports:
+      - '4563-4599:4563-4599'
+#      - '8080:8080'
+    environment:
+      - SERVICES=s3,sqs
+    logging:
+      driver: "none"
+  cloud-job-tests:
+    container_name: cloud-jobs-tests
+    build:
+      context: .
+      dockerfile: Dockerfile-tests
+    depends_on:
+      - "localstack"
