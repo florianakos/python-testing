@@ -186,7 +186,7 @@ class MetricSubmitter:
 
 
 def main():
-    # set ENV var to talk to datadog-agent running in local docker container
+    # set ENV var to talk to datadog-agent running locally in a docker container
     os.environ['STATSD_HOST'] = '0.0.0.0'
 
     # set ENV var to be the SQS URL reported by the terraform apply output
@@ -205,6 +205,8 @@ def main():
                                 sqs_client=session.client('sqs'),
                                 s3_client=session.client('s3'))
     submitter.run()
+
+    #TODO: make Dockerfile for main python script
 
 
 if __name__ == '__main__':
