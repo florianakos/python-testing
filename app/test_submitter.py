@@ -111,7 +111,7 @@ class TestGMMonitoringService(unittest.TestCase):
         self.assertEqual(self.s3_payload.decode("utf-8"),
                          json.dumps(self.submitter.aws_handler.get_s3_data()))
         self.submitter.aws_handler.remove_cached_message()
-        self.assertFalse(self.submitter.aws_handler.has_available_messages())
+        self.assertTrue(self.submitter.aws_handler.has_available_messages())
 
 
 if __name__ == '__main__':
