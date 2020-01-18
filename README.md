@@ -1,6 +1,6 @@
 # python-testing
 
-![travis-ci](https://travis-ci.org/florianakos/python-testing.svg?branch=master)
+[![Build Status](https://travis-ci.org/florianakos/python-testing.svg?branch=master)](https://travis-ci.org/florianakos/python-testing)
 
 Using localstack for integration testing of AWS services in docker-compose
 
