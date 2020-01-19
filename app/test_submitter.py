@@ -6,7 +6,7 @@ from app.utils.datadog_fake_statsd import DataDogStatsDHelper
 from app.utils.localstack_helper import LocalStackHelper
 
 
-class TestGMMonitoringService(unittest.TestCase):
+class TestCloudJobMonitoringService(unittest.TestCase):
     """ Class for testing AWSHandler and DataDogSubmitterApp script using:
         - DataDogStatsDHelper for asserting on statsd submissions
         - LocalStackHelper for setting up AWS-like infrastructure locally """
