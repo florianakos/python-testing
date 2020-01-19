@@ -195,11 +195,6 @@ def main():
     # create boto3 session with credentials from local profile
     session = boto3.Session(profile_name='personal-aws')
 
-    # exit if QUEUE url is not set up properly
-    if not os.environ.get('SQS_QUEUE_URL'):
-        print("Environment variables not set up properly, terminating ...!")
-        exit(1)
-
     # run the app that submits data from S3 to DataDog
     submitter = MetricSubmitter(statsd=datadog_statsd,
                                 sqs_client=session.client('sqs'),
