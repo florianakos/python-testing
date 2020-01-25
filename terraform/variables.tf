@@ -12,3 +12,8 @@ variable "queue_name" {
   type = string
   default = "cloud-job-results-queue"
 }
+
+variable lambda_func_path {
+  type = string
+  default = "../app/lambda/mock_data_source.zip"
+}

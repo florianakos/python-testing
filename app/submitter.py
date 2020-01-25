@@ -7,16 +7,23 @@ import boto3
 from botocore.exceptions import ClientError
 from datadog import initialize as datadog_init
 from datadog import statsd as datadog_statsd
+from sys import stderr
 
+def print_err(*args, **kwargs):
+    print(*args, file=stderr, **kwargs)
 
 class CloudResourceHandler:
     """ Class that handles operations related to SQS and S3 resources """
 
-    def __init__(self, sqs_queue_url, sqs_client, s3_client):
+    def __init__(self, sqs_client, s3_client):
         if sqs_client is None or s3_client is None:
-            print("Error: unable to initialize boto3, clients not found!")
+            print_err("ERROR: boto3 clients not found!")
             exit(1)
-        self.sqs_queue_url = sqs_queue_url
+        if not os.environ.get('SQS_QUEUE_URL'):
+            print_err("ERROR: Missing ENVIRONMENT variable 'SQS_QUEUE_URL'!")
+            exit(1)
+        print(f"Initializing new Cloud Resource Handler with SQS URL - {os.environ.get('SQS_QUEUE_URL')}")
+        self.sqs_queue_url = os.environ.get('SQS_QUEUE_URL')
         self.sqs_message_body = None
         self.receipt_handle = None
         self.s3_client = s3_client
@@ -123,18 +130,11 @@ class MetricSubmitter:
     def __init__(self, statsd=datadog_statsd, sqs_client=None, s3_client=None):
         """ Initializes datadog so statsd knows how to send data to DataDog """
 
-        if not os.environ.get('SQS_QUEUE_URL'):
-            print("Error: ENVIRONMENT variable 'SQS_QUEUE_URL' not set! Exiting ...")
-            exit(1)
         datadog_init(**{
             'statsd_host': os.environ.get('STATSD_HOST') or 'datadog-agent',
             'statsd_port': os.environ.get('STATSD_PORT') or 8125
         })
-
-        print("Initializing new AWS handler class with SQS URL - {}".format(os.environ.get('SQS_QUEUE_URL')))
-        self.aws_handler = CloudResourceHandler(os.environ.get('SQS_QUEUE_URL'),
-                                                sqs_client,
-                                                s3_client)
+        self.aws_handler = CloudResourceHandler(sqs_client, s3_client)
         self.ddg_statsd = statsd
 
     def datadog_submit(self, metrics):

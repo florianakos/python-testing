@@ -57,9 +57,9 @@ resource "aws_lambda_function" "lambda_mock_datasource" {
   role             = aws_iam_role.aws_lambda_s3_role.arn
   handler          = "mock_data_source.handler"
   runtime          = "python3.6"
-  filename         = "mock_data_source.zip"
+  filename         = var.lambda_func_path
   function_name    = "mock_data_source"
-  source_code_hash = base64sha256(filebase64("../app/lambda/mock_data_source.zip"))
+  source_code_hash = filebase64sha256(var.lambda_func_path)
 }
 
 resource "aws_lambda_permission" "allow_cloudwatch_events_call" {
