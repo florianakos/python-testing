@@ -189,7 +189,7 @@ class MetricSubmitter:
 
 def main():
     # set ENV var to talk to datadog-agent running locally in a docker container
-    os.environ['STATSD_HOST'] = '0.0.0.0'
+    os.environ['STATSD_HOST'] = 'localhost'
 
     # set ENV var to be the SQS URL reported by the terraform apply output
     os.environ['SQS_QUEUE_URL'] = 'https://sqs.eu-central-1.amazonaws.com/546454927816/cloud-job-results-queue'

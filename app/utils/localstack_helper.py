@@ -6,10 +6,8 @@ import pytest
 
 class LocalStackHelper:
 
-    def __init__(self, s3_bucket_name=None, sqs_queue_name=None):
+    def __init__(self):
         """ Wait for localstack to start, then init session with dummy credentials """
-        self.s3_bucket_name = s3_bucket_name
-        self.sqs_queue_name = sqs_queue_name
         self.wait_for_localstack()
         self.session = localstack_client.session.Session(aws_access_key_id="foo", aws_secret_access_key="bar")
 

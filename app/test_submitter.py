@@ -24,7 +24,7 @@ class TestCloudJobMonitoringService(unittest.TestCase):
         cls.s3_payload_invalid = b'{"job_success": 0}'
 
         print(" + waiting for Localstack to start in neighbor container!")
-        cls.ls = LocalStackHelper(sqs_queue_name=cls.sqs_queue_name, s3_bucket_name=cls.s3_bucket_name)
+        cls.ls = LocalStackHelper()
 
         print(" + setting up infrastructure in localstack for integration tests!")
         cls.ls.get_s3_client().create_bucket(Bucket=cls.s3_bucket_name)
