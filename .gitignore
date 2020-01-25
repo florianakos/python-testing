@@ -3,3 +3,4 @@
 venv_p3/
 terraform/.terraform
 .idea/
+*.backup

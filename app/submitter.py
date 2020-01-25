@@ -143,7 +143,8 @@ class MetricSubmitter:
         """
 
         tags = ['cloud_job_metric']
-        if "job_success" in metrics and metrics["job_success"] == 1:
+
+        if "job_success" in metrics and metrics["job_success"]:
             self.ddg_statsd.event('Job Success!',
                                   'Cloud process completed successfully.',
                                   alert_type='success',
@@ -152,6 +153,7 @@ class MetricSubmitter:
                 if key != "job_success":
                     self.ddg_statsd.gauge(key, value, tags=tags)
         else:
+            print('false...')
             self.ddg_statsd.event('Job Failure!',
                                   'Cloud process encountered a failure!',
                                   alert_type='error',
