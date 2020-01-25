@@ -11,7 +11,7 @@ services:
     logging:
       driver: "none"
   cloud-job-tests:
-    container_name: cloud-jobs-tests
+    container_name: cloud-job-tests
     build:
       context: .
       dockerfile: Dockerfile-tests

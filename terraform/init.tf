@@ -120,7 +120,7 @@ POLICY
 resource "aws_s3_bucket" "ddg_aws_bucket" {
   bucket = var.bucket_name
   tags = {
-    Name        = "My bucket for DataDog AWS integration proejct..."
+    Name        = "Bucket for fun..."
     Environment = "Dev"
   }
   force_destroy = "true"
