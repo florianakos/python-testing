@@ -1,4 +1,4 @@
-# Python in the cloud project
+# Python in the Cloud
 
 [![Build Status](https://travis-ci.org/florianakos/python-testing.svg?branch=master)](https://travis-ci.org/florianakos/python-testing)
 
