@@ -11,7 +11,7 @@ Technology stack:
 * `docker`: packaging the main executable
 * `docker-compose`: packaging integration tests
 * `travis-CI`: for automating integration tests
-* `aws s3/sqs`: for storing file and queueing messages
+* `aws s3/sqs`: for storing files and queueing messages
 * `datadog`: to display metrics and generate alerts
 
 To read more about the contents of this repo, read my blog post at: [link](https://flrnks.netlify.com/post/python-aws-datadog-testing/)
