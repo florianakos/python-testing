@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/florianakos/python-testing.svg?branch=master)](https://travis-ci.org/florianakos/python-testing)
 
-This is a proof of concept project in which I integrate AWS and DataDog services into a service which tracks the result of certain cloud workloads and forwards metrics about them from AWS to DataDog for display and alerting.
+This is a proof of concept project in which I integrate AWS and DataDog to monitor and track the result of certain workloads running in the cloud.
 
 Technology stack:
 
