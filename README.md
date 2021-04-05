@@ -1,4 +1,4 @@
-# Python in the Cloud
+# Testing A Python Cloud Application
 
 [![Build Status](https://travis-ci.org/florianakos/python-testing.svg?branch=master)](https://travis-ci.org/florianakos/python-testing)
 
