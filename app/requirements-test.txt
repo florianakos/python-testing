@@ -1,4 +1,3 @@
-localstack-client
-localstack
-pytest
-datadog
+localstack-client==0.25
+pytest==6.2.3
+datadog==0.34.0
