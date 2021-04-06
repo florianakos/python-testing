@@ -7,3 +7,4 @@ services:
 script:
   - cd app
   - docker-compose up --build --abort-on-container-exit
+  - docker-compose down -v --rmi all --remove-orphans
